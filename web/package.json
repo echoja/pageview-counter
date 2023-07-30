@@ -1,9 +1,6 @@
 {
-  "name": "my-qwik-basic-starter",
+  "name": "web",
   "description": "Demo App with Routing built-in (recommended)",
-  "engines": {
-    "node": ">=15.0.0"
-  },
   "private": true,
   "scripts": {
     "build": "qwik build",
@@ -36,6 +33,8 @@
     "undici": "5.22.1",
     "vite": "4.4.0",
     "vite-tsconfig-paths": "4.2.0",
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.0.0",
+    "@cloudflare/workers-types": "^4.20230419.0",
+    "itty-router": "^3.0.12"
   }
 }
