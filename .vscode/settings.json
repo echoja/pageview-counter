@@ -1,3 +1,8 @@
 {
-  "material-icon-theme.activeIconPack": "qwik"
+  "material-icon-theme.activeIconPack": "qwik",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll": true
+  }
 }

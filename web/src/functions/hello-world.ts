@@ -1,3 +1,3 @@
-export function onRequest(context: any) {
-  return new Response("Hello, world!")
+export function onRequest(_context: any) {
+  return new Response("Hello, world!");
 }

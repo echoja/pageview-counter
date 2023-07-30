@@ -17,7 +17,6 @@
 
 # Build generated
 /**/dist
-/**/public
 /**/build
 /**/.next
 
@@ -25,7 +24,6 @@
 *.7zip
 *.rar
 *.zip
-
 
 ### Vim ###
 *.sw[a-p]
