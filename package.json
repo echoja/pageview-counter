@@ -1,4 +1,9 @@
 {
   "name": "pageview-counter",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "scripts": {
+    "web": "pnpm --filter web",
+    "demo": "pnpm --filter demo",
+    "api": "pnpm --filter api"
+  }
 }
