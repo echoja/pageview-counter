@@ -19,6 +19,7 @@ export default {
 			return apiRouter.handle(request, env, ctx);
 		}
 
-		return new Response(`Hello World!!!`);
+		// 404 error default
+		return new Response('Not Found.', { status: 404 });
 	},
 };

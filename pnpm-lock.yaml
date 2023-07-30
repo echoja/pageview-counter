@@ -13,9 +13,6 @@ importers:
       itty-router:
         specifier: ^3.0.12
         version: 3.0.12
-      itty-router-extras:
-        specifier: ^0.4.5
-        version: 0.4.5
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.20230419.0
@@ -2809,10 +2806,6 @@ packages:
 
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-
-  /itty-router-extras@0.4.5:
-    resolution: {integrity: sha512-flxFhFZgPqiscrHTV3mBbRBk8plgOGdg5tZMyv7hE629PO+XEfXh2uHs78ndH6axRG50fIHfjrrqAlb3Pguemw==}
-    dev: false
 
   /itty-router@2.6.6:
     resolution: {integrity: sha512-hIPHtXGymCX7Lzb2I4G6JgZFE4QEEQwst9GORK7sMYUpJvLfy4yZJr95r04e8DzoAnj6HcxM2m4TbK+juu+18g==}
