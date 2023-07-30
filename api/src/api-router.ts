@@ -1,7 +1,15 @@
 import { Router } from 'itty-router';
+import { Env } from './types';
 
 // now let's create a router (note the lack of "new")
 const router = Router();
+
+router.get('/api/test/get-set', async (request, env: Env, ctx: ExecutionContext) => {
+	const count = Number.parseInt((await env.KV.get('test', 'text')) || '0');
+	await env.KV.put('test', (count + 1).toString());
+
+	return new Response(`Hello World! ~~~~~~~~~~~ ${count + 1}`);
+});
 
 // GET collection index
 router.get('/api/todos', () => new Response('Todos Index!'));
