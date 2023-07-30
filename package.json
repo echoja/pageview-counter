@@ -4,6 +4,11 @@
   "scripts": {
     "web": "pnpm --filter web",
     "demo": "pnpm --filter demo",
-    "api": "pnpm --filter api"
+    "api": "pnpm --filter api",
+    "dev": "turbo run dev",
+    "build:web": "turbo run build --filter=web..."
+  },
+  "devDependencies": {
+    "turbo": "^1.10.12"
   }
 }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "pageview-counter": "workspace:*",
     "@types/node": "^20.4.0",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",

@@ -1,0 +1,34 @@
+{
+  "name": "pageview-counter",
+  "version": "0.1.0",
+  "description": "A simple pageview counter for your website",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.tsx",
+    "dev": "tsup src/index.tsx --watch"
+  },
+  "keywords": [
+    "react",
+    "picker",
+    "icon-picker",
+    "icon",
+    "ui",
+    "iconify"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
+    "react": "^18.2.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
