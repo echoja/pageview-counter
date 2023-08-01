@@ -1,6 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
+  entry: ["src/index.tsx", "src/next-app.tsx"],
   minify: true,
   target: "es2018",
   bundle: true,

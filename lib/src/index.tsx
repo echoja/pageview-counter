@@ -7,10 +7,7 @@ export interface IReactIconPickerProps {
   onSelect: (icon: string) => void;
 }
 
-export const ReactIconPicker: React.FC<IReactIconPickerProps> = ({
-  icons,
-  onSelect,
-}) => {
+export const Test: React.FC<IReactIconPickerProps> = ({ icons, onSelect }) => {
   return (
     <ul>
       {icons.map((icon) => (
@@ -23,4 +20,4 @@ export const ReactIconPicker: React.FC<IReactIconPickerProps> = ({
   );
 };
 
-export default ReactIconPicker;
+export default Test;

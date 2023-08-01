@@ -5,10 +5,19 @@ import { Env } from './types';
 const router = Router();
 
 router.get('/api/test/get-set', async (request, env: Env, ctx: ExecutionContext) => {
-	const count = Number.parseInt((await env.KV.get('test', 'text')) || '0');
-	await env.KV.put('test', (count + 1).toString());
+	console.log('ctx', ctx);
+	console.log('env', env);
+	console.log('request', request);
 
-	return new Response(`Hello World! ~~~~~~~~~~~ ${count + 1}`);
+	const count = Number.parseInt((await env.KV.get('test', 'text')) || '0');
+	env.KV.put('test', (count + 1).toString());
+
+	// return json
+	return new Response(JSON.stringify({ count }), {
+		headers: {
+			'content-type': 'application/json;charset=UTF-8',
+		},
+	});
 });
 
 // GET collection index

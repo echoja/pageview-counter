@@ -14,6 +14,9 @@ import { Env } from './types';
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		const url = new URL(request.url);
+		request.headers.forEach((v, k) => console.log(k, v));
+		// console all log request.cf
+		Object.keys(request.cf || {}).forEach((k) => console.log(k, (request.cf || {})[k]));
 
 		if (url.pathname.startsWith('/api/')) {
 			return apiRouter.handle(request, env, ctx);

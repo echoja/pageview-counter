@@ -5,12 +5,24 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./next-app": {
+      "types": "./dist/next-app.d.ts",
+      "import": "./dist/next-app.mjs",
+      "require": "./dist/next-app.js"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.tsx",
-    "dev": "tsup src/index.tsx --watch"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "keywords": [
     "react",
