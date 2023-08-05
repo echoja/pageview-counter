@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@pvc/web",
   "description": "Demo App with Routing built-in (recommended)",
   "private": true,
   "scripts": {

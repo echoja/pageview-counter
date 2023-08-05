@@ -5,10 +5,7 @@ import { Env } from './types';
 const router = Router();
 
 router.get('/api/test/get-set', async (request, env: Env, ctx: ExecutionContext) => {
-	console.log('ctx', ctx);
-	console.log('env', env);
-	console.log('request', request);
-
+	
 	const count = Number.parseInt((await env.KV.get('test', 'text')) || '0');
 	env.KV.put('test', (count + 1).toString());
 

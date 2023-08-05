@@ -21,9 +21,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20230801.0
         version: 4.20230801.0
-      '@types/itty-router-extras':
-        specifier: ^0.4.0
-        version: 0.4.0
+      '@pvc/utils':
+        specifier: workspace:*
+        version: link:../utils
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
@@ -84,6 +84,18 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      tsup:
+        specifier: ^7.2.0
+        version: 7.2.0(typescript@5.1.6)
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
+  utils:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.4.7
+        version: 20.4.7
       tsup:
         specifier: ^7.2.0
         version: 7.2.0(typescript@5.1.6)
@@ -941,12 +953,6 @@ packages:
     resolution: {integrity: sha512-SvQi0L/lNpThgPoleH53cdjB3y9zpLlVjRbqB3rH8hx1jiRSBGAhyjV3H+URFjNVRqt2EdYNrbZE5IsGlNfpRg==}
     dependencies:
       '@types/unist': 2.0.7
-    dev: true
-
-  /@types/itty-router-extras@0.4.0:
-    resolution: {integrity: sha512-IcXmXB8vVbjWy4McZjKzo+3sdQyzMpyHi5mQ4iViu6yX9cS/SVlGR+6H/AgzfG32svaQJeOhl2gfXYwf1AKEgg==}
-    dependencies:
-      itty-router: 2.6.6
     dev: true
 
   /@types/json-schema@7.0.12:
@@ -2884,10 +2890,6 @@ packages:
 
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-
-  /itty-router@2.6.6:
-    resolution: {integrity: sha512-hIPHtXGymCX7Lzb2I4G6JgZFE4QEEQwst9GORK7sMYUpJvLfy4yZJr95r04e8DzoAnj6HcxM2m4TbK+juu+18g==}
-    dev: true
 
   /itty-router@4.0.14:
     resolution: {integrity: sha512-s8DfaLkQp+E3kBhjwto3Z91ozulotCLAmlS8AIr230NqwFJssiGIoewo1P+CEkZ3YrzghS9k/RVvmMlvKQxueQ==}
