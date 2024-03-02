@@ -2,8 +2,8 @@
   "material-icon-theme.activeIconPack": "qwik",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll": true
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -9,6 +9,6 @@
     "build:web": "turbo run build --filter=web..."
   },
   "devDependencies": {
-    "turbo": "^1.10.12"
+    "turbo": "^1.12.4"
   }
 }
