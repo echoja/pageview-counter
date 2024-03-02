@@ -2,6 +2,7 @@
   "name": "@pvc/web",
   "description": "Demo App with Routing built-in (recommended)",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",

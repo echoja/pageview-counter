@@ -1,3 +1,3 @@
 export function testFunc() {
-  console.log("hello world! ~~~~~~~~~~~");
+  console.log("utils test: hello world! ~~~~~~~~~~~");
 }
