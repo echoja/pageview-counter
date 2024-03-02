@@ -8,9 +8,10 @@ compatibility_date = "2023-07-24"
 # [vars]
 # MY_VARIABLE = "production_value"
 
-kv_namespaces = [
-  { binding = "KV", id = "c2fd1b97aae34107866e6975df9f9a65", preview_id = "a24c06d86a5241e3bac83150ff7aaa9b" }
-]
+[[kv_namespaces]]
+binding = "KV"
+id = "c2fd1b97aae34107866e6975df9f9a65"
+preview_id = "a24c06d86a5241e3bac83150ff7aaa9b"
 
 # Bind a KV Namespace. Use KV as persistent storage for small key-value pairs.
 # Docs: https://developers.cloudflare.com/workers/runtime-apis/kv

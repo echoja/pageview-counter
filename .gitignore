@@ -13,7 +13,7 @@
 
 # dotenv environment variables file(s)
 .env
-.env.*
+.env.lodal
 
 # Build generated
 /**/dist
