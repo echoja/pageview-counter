@@ -1,40 +1,32 @@
 import { Router } from 'itty-router';
 import { Env } from './types';
+import { getStringWidth } from './verdanaWidthMap';
 
 // now let's create a router (note the lack of "new")
 const router = Router();
 
-router.get('/api/test/get-set', async (request, env: Env, ctx: ExecutionContext) => {
-	const count = Number.parseInt((await env.KV.get('test', 'text')) || '0');
-	env.KV.put('test', (count + 1).toString());
-	console.log('x-forwarded-for', request.headers.get('x-forwarded-for'));
-	// log the request url where from
-	request.headers.forEach((k, v) => console.log(k, v));
+router.get('/api/counter.svg', async (request, env: Env, ctx: ExecutionContext) => {
+	console.log('HO!!!!!', request.referrer, request.url, request.method, request.headers.get('x-forwarded-for'));
+	const fontSize = parseInt(request.query['size']?.toString() || '12') || 12;
+	const color = request.query['color']?.toString() || 'black';
+	const key = request.referrer;
+	const height = Math.ceil(fontSize * 1.33);
+	const count = (await env.KV.get(key, 'text')) || '0';
+	const width = getStringWidth({ str: count, fontSize });
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${width}" height="${height}">
+<style> text { line-height: 1; fill: ${color}; } </style>
+<text font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="${fontSize}" x="0" y="${fontSize}">${count}</text>
+</svg>`;
 
-	// return json
-	return new Response(JSON.stringify({ count }), {
-		headers: {
-			'content-type': 'application/json;charset=UTF-8',
-		},
-	});
-});
-
-router.get('/api/test/get-set.svg', async (request, env: Env, ctx: ExecutionContext) => {
-	const svg =
-		'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baby"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg>';
+	await env.KV.put(key, (Number.parseInt(count) + 1).toString());
 
 	return new Response(svg, {
 		headers: {
 			'content-type': 'image/svg+xml;charset=UTF-8',
+			'cache-control': 'no-store',
 		},
 	});
 });
-
-// GET collection index
-router.get('/api/todos', () => new Response('Todos Index!'));
-
-// GET item
-router.get('/api/todos/:id', ({ params }) => new Response(`Todo #${params.id}`));
 
 // POST to the collection (we'll use async here)
 router.post('/api/todos', async (request) => {

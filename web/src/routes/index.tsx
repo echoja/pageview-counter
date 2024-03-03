@@ -5,13 +5,11 @@ export default component$(() => {
   return (
     <>
       {/* I moved all logic to another file in-case you want to quickly delete and prototype something */}
-
       <div style={{ padding: "1rem" }}>Hello World</div>
+      {/* eslint-disable-next-line qwik/jsx-img */}
       <img
-        src="http://localhost:8787/api/test/get-set.svg"
+        src="http://localhost:8787/api/counter.svg?color=white"
         alt="test svg"
-        width={24}
-        height={24}
       />
     </>
   );
