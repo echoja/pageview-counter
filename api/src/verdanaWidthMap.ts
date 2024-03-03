@@ -108,19 +108,19 @@ export const verdanaWidthMap: Record<string, [number, number, number, number]> =
 };
 
 export const getStringWidth = ({
-	fontSize = 12,
+	size = 12,
 	str,
 	style = 'normal',
 }: {
 	str: string;
-	fontSize?: number;
+	size?: number;
 	style?: 'normal' | 'bold' | 'italic' | 'bold_italic';
 }) => {
 	let width = 0;
 	const styleIndex = style === 'bold' ? 1 : style === 'italic' ? 2 : style === 'bold_italic' ? 3 : 0;
 
 	str.split('').forEach((char) => {
-		width += (verdanaWidthMap[char]?.[styleIndex] ?? 64) * (fontSize / 100);
+		width += (verdanaWidthMap[char]?.[styleIndex] ?? 64) * (size / 100);
 	});
 
 	return width;

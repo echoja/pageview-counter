@@ -1,21 +1,31 @@
 import { Router } from 'itty-router';
+import { z } from 'zod';
 import { Env } from './types';
 import { getStringWidth } from './verdanaWidthMap';
 
 // now let's create a router (note the lack of "new")
 const router = Router();
 
+const counterQueries = z.object({
+	size: z.coerce.number().optional(),
+	color: z.string().optional(),
+	url: z.string(),
+});
+
 router.get('/api/counter.svg', async (request, env: Env, ctx: ExecutionContext) => {
-	console.log('HO!!!!!', request.referrer, request.url, request.method, request.headers.get('x-forwarded-for'));
-	const fontSize = parseInt(request.query['size']?.toString() || '12') || 12;
-	const color = request.query['color']?.toString() || 'black';
-	const key = request.referrer;
-	const height = Math.ceil(fontSize * 1.33);
+	const queryValidation = counterQueries.safeParse(request.query);
+	if (!queryValidation.success) {
+		return new Response('Invalid query', { status: 400 });
+	}
+	const { url, color = 'black', size = 12 } = queryValidation.data;
+
+	const key = url || request.referrer;
+	const height = Math.ceil(size * 1.33);
 	const count = (await env.KV.get(key, 'text')) || '0';
-	const width = getStringWidth({ str: count, fontSize });
+	const width = getStringWidth({ str: count, size });
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${width}" height="${height}">
 <style> text { line-height: 1; fill: ${color}; } </style>
-<text font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="${fontSize}" x="0" y="${fontSize}">${count}</text>
+<text font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="${size}" x="0" y="${size}">${count}</text>
 </svg>`;
 
 	await env.KV.put(key, (Number.parseInt(count) + 1).toString());

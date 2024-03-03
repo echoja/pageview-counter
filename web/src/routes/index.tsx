@@ -8,7 +8,7 @@ export default component$(() => {
       <div style={{ padding: "1rem" }}>Hello World</div>
       {/* eslint-disable-next-line qwik/jsx-img */}
       <img
-        src="http://localhost:8787/api/counter.svg?color=white"
+        src={`http://localhost:8787/api/counter.svg?color=white&url=${encodeURIComponent("http://localhost:5173/")}`}
         alt="test svg"
       />
     </>
